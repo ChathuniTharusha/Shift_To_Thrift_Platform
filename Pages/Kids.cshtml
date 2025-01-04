@@ -1,0 +1,129 @@
+﻿@page
+@model KidsModel
+@{
+    ViewData["Title"] = "Kids' Wear";
+}
+<link rel="stylesheet" href="/css/kids.css">
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="kids-page">
+    <h2>Kids' Collection</h2>
+
+    <!-- Filters Section -->
+    <div class="filters">
+        <div class="filter-group">
+            <label for="priceFilter">Price:</label>
+            <select id="priceFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="0-20">$0 - $20</option>
+                <option value="21-50">$21 - $50</option>
+                <option value="51-100">$51 - $100</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="sizeFilter">Size:</label>
+            <select id="sizeFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="XS">Extra Small</option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="typeFilter">Type:</label>
+            <select id="typeFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="shirts">Shirts</option>
+                <option value="tshirts">T-Shirts</option>
+                <option value="pants">Pants</option>
+                <option value="jackets">Jackets</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+        <div class="product-card" data-price="15" data-size="S" data-type="shirts">
+            <img src="/images/kids1.jpg" alt="Product 1">
+            <p>Striped Shirt</p>
+            <span>$15.00</span>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card" data-price="25" data-size="M" data-type="tshirts">
+            <img src="/images/kids2.jpg" alt="Product 2">
+            <p>Casual T-Shirt</p>
+            <span>$25.00</span>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card" data-price="30" data-size="L" data-type="pants">
+            <img src="/images/kids3.jpg" alt="Product 3">
+            <p>Comfortable Pants</p>
+            <span>$30.00</span>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card" data-price="40" data-size="M" data-type="jackets">
+            <img src="/images/kids4.jpg" alt="Product 4">
+            <p>Winter Jacket</p>
+            <span>$40.00</span>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function filterProducts() {
+        const priceFilter = document.getElementById('priceFilter').value;
+        const sizeFilter = document.getElementById('sizeFilter').value;
+        const typeFilter = document.getElementById('typeFilter').value;
+        const products = document.querySelectorAll('.product-card');
+
+        products.forEach(product => {
+            const price = parseInt(product.getAttribute('data-price'), 10);
+            const size = product.getAttribute('data-size');
+            const type = product.getAttribute('data-type');
+
+            let show = true;
+
+            // Filter by price
+            if (priceFilter !== 'all') {
+                const [min, max] = priceFilter.split('-').map(Number);
+                if (price < min || price > max) show = false;
+            }
+
+            // Filter by size
+            if (sizeFilter !== 'all' && size !== sizeFilter) show = false;
+
+            // Filter by type
+            if (typeFilter !== 'all' && type !== typeFilter) show = false;
+
+            product.style.display = show ? 'block' : 'none';
+        });
+    }
+</script>
