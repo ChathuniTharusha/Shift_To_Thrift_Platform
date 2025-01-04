@@ -1,0 +1,92 @@
+﻿@page
+@model CartModel
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<!-- Link to Cart-specific CSS -->
+<link rel="stylesheet" href="/css/cart.css">
+
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="cart-page">
+    <h2>Your Shopping Cart</h2>
+
+    <!-- Cart Items Table -->
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example item -->
+            <tr>
+                <td>
+                    <img src="/images/item1.jpg" alt="Product Image">
+                    <span>Trendy Frock</span>
+                </td>
+                <td>$20.00</td>
+                <td>
+                    <input type="number" value="1" min="1">
+                </td>
+                <td>$20.00</td>
+                <td>
+                    <button class="remove-btn">Remove</button>
+                </td>
+            </tr>
+            <!-- Repeat rows for other products -->
+            <tr>
+                <td>
+                    <img src="/images/men3.jpg" alt="Product Image">
+                    <span>Leather Jacket</span>
+                </td>
+                <td>$30.00</td>
+                <td>
+                    <input type="number" value="1" min="1">
+                </td>
+                <td>$30.00</td>
+                <td>
+                    <button class="remove-btn">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary">
+        <h3>Cart Summary</h3>
+        <p>Total: <span>$50.00</span></p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</section>
