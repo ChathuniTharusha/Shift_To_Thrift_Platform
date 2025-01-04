@@ -1,0 +1,104 @@
+﻿@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<!-- Link to Profile-specific CSS -->
+<link rel="stylesheet" href="/css/profile.css">
+
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<section class="profile-page">
+    <h2>Your Profile</h2>
+    <!-- Profile Info Section -->
+    <div class="profile-info">
+        <img src="/images/profile.png" alt="Profile Picture">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" value="johndoe@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" value="password123">
+                    <button type="button" id="togglePassword" class="toggle-password-btn">
+                        Show
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+
+            // Change button text
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+    </script>
+
+    <!-- Order History Section -->
+    <div class="order-history">
+        <h3>Order History</h3>
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#12345</td>
+                    <td>2024-12-01</td>
+                    <td>$50.00</td>
+                </tr>
+                <tr>
+                    <td>#12346</td>
+                    <td>2024-12-10</td>
+                    <td>$75.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
