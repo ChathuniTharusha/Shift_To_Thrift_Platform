@@ -1,0 +1,58 @@
+﻿@page
+@model WishlistModel
+@{
+    ViewData["Title"] = "Wishlist";
+}
+
+<!-- Link to Wishlist-specific CSS -->
+<link rel="stylesheet" href="/css/wishlist.css">
+
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<section class="wishlist-page">
+    <h2>Your Wishlist</h2>
+
+    <!-- Wishlist Items -->
+    <div class="wishlist-grid">
+        <!-- Example item -->
+        <div class="wishlist-item">
+            <img src="/images/item1.jpg" alt="Product Image">
+            <div class="item-details">
+                <p>Trendy Frock</p>
+                <span>$20.00</span>
+                <div class="wishlist-actions">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="remove-btn">Remove</button>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for other items -->
+    </div>
+</section>
