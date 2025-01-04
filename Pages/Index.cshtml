@@ -1,0 +1,110 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Shift to Thrift - Home";
+}
+
+<!-- Header Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">Shift to Thrift</a>
+        <ul class="nav-links">
+            <li><a href="/Men">Men</a></li>
+            <li><a href="/Women">Women</a></li>
+            <li><a href="/Kids">Kids</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Banner Section -->
+<section class="new-items">
+    <h2>Newly Added Items</h2>
+    <div class="slideshow-container">
+
+        <!-- Slide 1 -->
+        <div class="slide fade">
+            <img src="/images/item1.jpg" alt="Item 1">
+            <p>Price - $20.00</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide fade">
+            <img src="/images/item2.jpg" alt="Item 2">
+            <p>Price - $25.00</p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide fade">
+            <img src="/images/item3.jpg" alt="Item 3">
+            <p>Price - $15.00</p>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide fade">
+            <img src="/images/item4.jpg" alt="Item 4">
+            <p>Price - $10.00</p>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide fade">
+            <img src="/images/item5.jpg" alt="Item 5">
+            <p>Price - $18.00</p>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide fade">
+            <img src="/images/item6.jpg" alt="Item 6">
+            <p>Price - $12.00</p>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide fade">
+            <img src="/images/item7.jpg" alt="Item 7">
+            <p>Prices - $8.00</p>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+</section>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+
+    function changeSlide(n) {
+        slideIndex += n;
+        let slides = document.getElementsByClassName("slide");
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        if (slideIndex < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+
+<!-- Seasonal Offers Section -->
+<section class="seasonal-offers">
+    <h2>Seasonal Offers</h2>
+    <p>Don't miss out on exclusive discounts this season!</p>
+    <a href="/Offers" class="btn">View Offers</a>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Contact Us | FAQs | Terms & Conditions</p>
+</footer>
