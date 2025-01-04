@@ -1,0 +1,151 @@
+﻿@page
+@model CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!-- Link to Checkout-specific CSS -->
+<link rel="stylesheet" href="/css/checkout.css">
+
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="checkout-page">
+    <h2>Checkout</h2>
+    <p>Please review your order and provide your shipping details.</p>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="/images/item1.jpg" alt="Product Image">
+                            <span>Trendy Frock</span>
+                        </div>
+                    </td>
+                    <td>$20.00</td>
+                    <td>1</td>
+                    <td>$20.00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="/images/men3.jpg" alt="Product Image">
+                            <span>Leather Jacket</span>
+                        </div>
+                    </td>
+                    <td>$30.00</td>
+                    <td>1</td>
+                    <td>$30.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"><strong>Subtotal:</strong></td>
+                    <td>$50.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><strong>Shipping Fee:</strong></td>
+                    <td id="shippingFee">$1.50</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><strong>Total:</strong></td>
+                    <td id="totalAmount">$51.50</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- Shipping Details -->
+    <div class="shipping-details">
+        <h3>Shipping Details</h3>
+        <form id="shippingForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" required>
+            </div>
+        </form>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="payment-options">
+        <h3>Choose a Payment Method</h3>
+        <div class="payment-methods">
+            <div class="payment-option">
+                <img src="/images/cod.png" alt="Cash on Delivery">
+                <p>Cash on Delivery</p>
+            </div>
+            <div class="payment-option">
+                <img src="/images/mintpay.png" alt="Mint Pay">
+                <p>Mint Pay</p>
+            </div>
+            <div class="payment-option">
+                <img src="/images/card.png" alt="Credit/Debit Cards">
+                <p>Credit/Debit Cards</p>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="confirm-btn" onclick="submitCheckout()">Confirm Payment</button>
+</section>
+
+<script>
+    function submitCheckout() {
+        // Ensure shipping form is filled
+        const form = document.getElementById('shippingForm');
+        if (form.checkValidity()) {
+            alert('Thank you for your order! Your payment has been processed.');
+        } else {
+            alert('Please fill out all shipping details.');
+        }
+    }
+</script>
+
+<!-- Footer -->
+<footer>
+    <p>Contact Us | FAQs | Terms & Conditions</p>
+</footer>
