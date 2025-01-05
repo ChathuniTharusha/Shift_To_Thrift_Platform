@@ -1,0 +1,116 @@
+﻿@page
+@model AboutUsModel
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<!-- Link to About Us-specific CSS -->
+<link rel="stylesheet" href="/css/about-us.css">
+
+<section class="about-us-page">
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="/images/about-banner.jpg" alt="About Us Banner">
+        <div class="hero-text">
+            <h1>About Us</h1>
+            <p>Your go-to platform for sustainable and affordable fashion.</p>
+        </div>
+    </div>
+
+    <!-- Founder Section -->
+    <div class="founder-section">
+        <h2>Our Founder</h2>
+        <div class="founder-profile">
+            <img src="/images/me.jpg" alt="Founder">
+            <p>Hi, I’m the founder of Shift to Thrift. My mission is to bring sustainability to the forefront of fashion. Together, let’s create a better future, one outfit at a time.</p>
+        </div>
+    </div>
+
+    <!-- Vision and Mission Section -->
+    <div class="vision-mission">
+        <div class="vision">
+            <h2>Our Vision</h2>
+            <p>To revolutionize the way people shop by making sustainability a mainstream choice.</p>
+        </div>
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>Empowering consumers to make eco-conscious decisions through affordable and fashionable thrifted items.</p>
+        </div>
+    </div>
+
+    <!-- Quick Tutorial Section -->
+    <div class="tutorial">
+        <h2>Quick Tutorial</h2>
+        <p>New to Shift to Thrift? Let us guide you!</p>
+        <button onclick="startTutorial()">Start Tutorial</button>
+    </div>
+</section>
+
+<!-- Tutorial Dialog -->
+<div id="tutorial-dialog" class="dialog" style="display: none;">
+    <div class="dialog-content">
+        <img src="/images/dialog.png" alt="Dialog Icon" class="dialog-icon">
+        <p id="tutorial-text"></p>
+        <div class="dialog-buttons">
+            <button onclick="nextStep()">Next</button>
+            <button onclick="skipTutorial()">Skip</button>
+        </div>
+    </div>
+</div>
+
+<!-- Happy Shopping Dialog -->
+<div id="happy-dialog" class="dialog" style="display: none;">
+    <div class="dialog-content">
+        <img src="/images/dialog.png" alt="Dialog Icon" class="dialog-icon">
+        <p>That’s the end of the tutorial. Happy shopping!</p>
+        <div class="dialog-buttons-close">
+            <button onclick="closeDialog()">Close</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    const tutorialSteps = [
+        "Welcome to Shift to Thrift! Use the navigation bar to explore categories like Men, Women, and Kids.",
+        "Search for products using the search bar at the top.",
+        "View detailed product pages and add items to your cart.",
+        "Proceed to the checkout to complete your purchase!"
+    ];
+    let stepIndex = 0;
+
+    function startTutorial() {
+        stepIndex = 0;
+        showStep();
+    }
+
+    function showStep() {
+        const dialog = document.getElementById('tutorial-dialog');
+        const text = document.getElementById('tutorial-text');
+        text.innerText = tutorialSteps[stepIndex];
+        dialog.style.display = 'block';
+    }
+
+    function nextStep() {
+        stepIndex++;
+        if (stepIndex < tutorialSteps.length) {
+            showStep();
+        } else {
+            endTutorial();
+        }
+    }
+
+    function skipTutorial() {
+        endTutorial();
+    }
+
+    function endTutorial() {
+        document.getElementById('tutorial-dialog').style.display = 'none';
+        document.getElementById('happy-dialog').style.display = 'block';
+    }
+
+    function closeDialog() {
+        document.getElementById('happy-dialog').style.display = 'none';
+    }
+</script>
