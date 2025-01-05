@@ -1,0 +1,55 @@
+﻿@page
+@model SearchResultsModel
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<!-- Link to Search Results CSS -->
+<link rel="stylesheet" href="/css/search-results.css">
+
+<!-- Header with Banner -->
+<header class="header">
+    <div class="banner">
+        <img src="/images/banner.jpg" alt="Shift to Thrift Banner">
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shift to Thrift</a>
+            <ul class="nav-links">
+                <li><a href="/Men">Men</a></li>
+                <li><a href="/Women">Women</a></li>
+                <li><a href="/Kids">Kids</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/Cart" class="icon-link">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                </a>
+                <a href="/Wishlist" class="icon-link">
+                    <img src="/images/wishlist.png" alt="Wishlist Icon">
+                </a>
+                <a href="/Profile" class="icon-link">
+                    <img src="/images/profile.png" alt="Profile Icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="search-results-page">
+    <h2>Search Results for: "@Request.Query["query"]"</h2>
+
+    <p class="results-count">Showing results for your search query:</p>
+
+    <div class="product-grid">
+        @foreach (var product in Model.SearchResults)
+        {
+            <div class="product-card">
+                <img src="/images/@product.Image" alt="@product.Name">
+                <p>@product.Name</p>
+                <span>$@product.Price</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        }
+    </div>
+
+</section>
