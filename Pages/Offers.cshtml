@@ -1,0 +1,43 @@
+﻿@page
+@model OffersModel
+@{
+    ViewData["Title"] = "Offers";
+}
+
+<link rel="stylesheet" href="/css/offers.css">
+
+
+
+<section class="offers-page">
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="/images/offers-banner.jpg" alt="Offers Banner">
+        <div class="hero-text">
+            <h1>Special Offers</h1>
+            <p>Discover amazing deals and save big this season!</p>
+        </div>
+    </div>
+
+    <!-- Offers Grid -->
+    <div class="offers-grid">
+        <!-- New Year Sale -->
+        <div class="offer-card">
+            <img src="/images/new-year-sale.jpg" alt="New Year Sale">
+            <div class="offer-details">
+                <h3>New Year Sale</h3>
+                <p>Up to 50% off on select items. Start the year in style!</p>
+                <button class="btn">Explore Now</button>
+            </div>
+        </div>
+
+        <!-- Christmas Offer -->
+        <div class="offer-card">
+            <img src="/images/christmas-offer.jpg" alt="Christmas Offer">
+            <div class="offer-details">
+                <h3>Christmas Offer</h3>
+                <p>Enjoy festive discounts and special gifts!</p>
+                <button class="btn">Shop Now</button>
+            </div>
+        </div>
+    </div>
+</section>
