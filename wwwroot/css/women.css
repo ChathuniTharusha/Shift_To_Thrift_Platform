@@ -64,12 +64,29 @@
 }
 
     .add-to-cart-btn:hover {
-        background-color: #4a5b4e; /* Darker fourth color */
+        background-color: #4a5b4e;
         transform: scale(1.05);
     }
 
-/* Hover Effects */
-.product-card:hover {
+/* Add to Wishlist Button */
+.add-to-wishlist-btn {
+    background-color: #5c715e; /* Fourth color */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+}
+
+.add-to-wishlist-btn:hover {
+    background-color: #4a5b4e;
+    transform: scale(1.05);
+    /* Hover Effects */
+    .product-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
