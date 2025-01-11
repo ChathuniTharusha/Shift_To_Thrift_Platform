@@ -53,6 +53,14 @@
         margin-bottom: 10px;
     }
 
+/* Button Group Styling */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 /* Add to Cart Button */
 .add-to-cart-btn {
     background-color: #5c715e; /* Fourth color */
@@ -72,22 +80,30 @@
 
 /* Add to Wishlist Button */
 .add-to-wishlist-btn {
-    background-color: #5c715e; /* Fourth color */
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 0.9em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: #5c715e !important; /* Fourth color */
+    color: #fff !important;
+    border: none !important;
+    padding: 10px !important;
+    font-size: 0.9em !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
 }
 
-}
+    .add-to-wishlist-btn:hover {
+        background-color: #4a5b4e !important;
+        transform: scale(1.05) !important;
+    }
 
-.add-to-wishlist-btn:hover {
-    background-color: #4a5b4e;
+
+/* Product Card Hover Effects */
+.product-card:hover {
     transform: scale(1.05);
-    /* Responsive Design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive Design */
     @media (max-width: 768px) {
         .product-card {
             width: 150px;
